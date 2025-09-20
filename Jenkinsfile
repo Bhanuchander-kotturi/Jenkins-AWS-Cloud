@@ -68,7 +68,7 @@ pipeline {
     stage('Trivy FS Scan') {
       steps {
           echo 'trivy file sysytem scan'
-          sh 'trivy fs --format table -o FSScanReport.html'
+          sh 'trivy fs . --format table -o FSScanReport.html'
       }
     }
     stage('Build & Tag image') {
