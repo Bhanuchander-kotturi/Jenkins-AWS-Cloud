@@ -15,6 +15,7 @@ pipeline {
     stage('Checkout Github Codes'){
       steps {
         echo 'Cecking out github codes...'
+        checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Github-Token', url: 'https://github.com/Bhanuchander-kotturi/Jenkins-AWS-Cloud.git']])
       }
     }
     stage('Maven Build') {
