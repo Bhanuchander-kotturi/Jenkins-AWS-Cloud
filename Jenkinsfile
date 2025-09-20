@@ -77,7 +77,7 @@ pipeline {
       steps {
           echo 'Building java app docker image'
           script {
-                  sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} ."
+                  sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
       }
     }
   }
