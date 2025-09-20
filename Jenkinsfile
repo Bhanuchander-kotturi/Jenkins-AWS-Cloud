@@ -60,7 +60,7 @@ pipeline {
                               ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
                               -Dsonar.projectKey=jenkinsgcp \
                               -Dsonar.sources=. \
-                              -Dsonar.host.url=http://15.207.104.59:9000 \
+                              -Dsonar.host.url=http://3.110.233.42:9000 \
                               -Dsonar.java.binaries=target
                          '''
                }
