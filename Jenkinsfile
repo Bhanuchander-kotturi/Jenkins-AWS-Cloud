@@ -67,13 +67,13 @@ pipeline {
     }
     stage('Trivy FS Scan') {
       steps {
-        echo 'trivy file sysytem scan'
-        sh 'trivy fs --format table -o FSScanReport.html'
+          echo 'trivy file sysytem scan'
+          sh 'trivy fs --format table -o FSScanReport.html'
       }
     }
     stage('Build & Tag image') {
       steps {
-        echo 'Building java app docker image'
+          echo 'Building java app docker image'
       }
     }
   }
