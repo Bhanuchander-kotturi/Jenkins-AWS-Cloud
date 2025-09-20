@@ -9,7 +9,7 @@ pipeline {
       steps {
         echo "Initializing Pipeline..."
         sh 'java --version'
-        sh 'maven --version'
+        sh 'mvn --version'
       }
     }
     stage('Checkout Github Codes'){
