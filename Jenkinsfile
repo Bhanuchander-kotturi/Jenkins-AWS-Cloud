@@ -69,7 +69,7 @@ pipeline {
     }
     stage('Trivy FS Scan') {
       steps {
-          echo 'trivy file sysytem scan'
+          echo 'trivy file system scan'
           sh 'trivy fs . --format table -o FSScanReport.html'
       }
     }
