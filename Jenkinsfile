@@ -53,10 +53,17 @@ pipeline {
       steps {
         echo 'Running static code analysis'
         withCredentials([string(credentialsId: 'Sonar-Token', variable: 'sonarToken')]) {
-          withSonarQubeEnv('sonar') {
-            sh '''
-              ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
-              -Dsonar.projectKey=jenkinsgcp \
-              -Dsonar.sources=. \
-              -Dsonar.host.url=http://15.207.104.59:9000 \
-              -Dsonar.java.binaries=target
+               withSonarQubeEnv('sonar') {
+                       sh '''
+                              ${SONAR_SCANNER_HOME}/bin/sonar-scanner \
+                              -Dsonar.projectKey=jenkinsgcp \
+                              -Dsonar.sources=. \
+                              -Dsonar.host.url=http://15.207.104.59:9000 \
+                              -Dsonar.java.binaries=target
+                         '''
+               }
+        }
+      }
+    }
+  }
+}
