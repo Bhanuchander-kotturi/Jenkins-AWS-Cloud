@@ -1,9 +1,15 @@
 pipeline {
   agent any
+  tools {
+    jdk 'Java21'
+    maven 'maven3'
+  }
   stages {
     stage('Initialize Pipeline') {
       steps {
         echo "Initializing Pipeline..."
+        sh 'java --version'
+        sh 'maven --version'
       }
     }
     stage('Checkout Github Codes'){
