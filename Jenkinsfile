@@ -77,8 +77,8 @@ pipeline {
       steps {
           echo 'Building java app docker image...'
           script {
-                  sh 'docker buildx build -t java-app:29 --load .'
-                  sh 'docker run -d -p 8088:8090 --name myapp_conatiner ${IMAGE_NAME}:${IMAGE_TAG}'
+                  sh "docker buildx build -t ${IMAGE_NAME}:${IMAGE_TAG} --load ."
+                  sh "docker run -d -p 8088:8090 --name myapp_container ${IMAGE_NAME}:${IMAGE_TAG}"
           }
       }
     }
