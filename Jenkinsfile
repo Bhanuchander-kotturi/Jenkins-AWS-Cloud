@@ -39,7 +39,7 @@ pipeline {
 
     stage('Maven Build') {
       steps {
-        echo 'Building java app with maven'
+        echo 'Building java app with maven...'
         sh 'mvn clean package'
       }
     }
@@ -53,7 +53,7 @@ pipeline {
 
     stage('SonarQube Analysis') {
       steps {
-        echo 'Running static code analysis'
+        echo 'Running static code analysis...'
         withCredentials([string(credentialsId: 'Sonar-Token', variable: 'sonarToken')]) {
                withSonarQubeEnv('sonar') {
                        sh '''
@@ -69,13 +69,13 @@ pipeline {
     }
     stage('Trivy FS Scan') {
       steps {
-          echo 'trivy file system scan'
+          echo 'trivy file system scan...'
           sh 'trivy fs . --format table -o FSScanReport.html'
       }
     }
     stage('Build & Tag image') {
       steps {
-          echo 'Building java app docker image'
+          echo 'Building java app docker image...'
           script {
                   sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
                   sh 'docker run -d -p 8088:8090 --name myapp_conatiner ${IMAGE_NAME}:${IMAGE_TAG}'
